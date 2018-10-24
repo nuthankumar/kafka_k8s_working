@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: consumer
+  name: consumer
+  namespace: nuthan
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: consumer
+    spec:
+      containers:
+      - image: docker.io/8884654123/24c:latest
+        imagePullPolicy: IfNotPresent
+        name: consumer
+        ports:
+        - containerPort: 8081

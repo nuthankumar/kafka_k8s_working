@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: producer
+  name: producer
+  namespace: nuthan
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: producer
+    spec:
+      containers:
+      - image: docker.io/8884654123/24p:latest
+        imagePullPolicy: IfNotPresent
+        name: producer
+        ports:
+        - containerPort: 8080
